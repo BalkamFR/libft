@@ -6,7 +6,7 @@
 /*   By: papilaz <papilaz@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 17:06:31 by papilaz           #+#    #+#             */
-/*   Updated: 2025/11/10 19:07:29 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/11/11 14:49:32 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,14 +88,54 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*tmp;
+	t_list	*next;
 
 	tmp = *lst;
-	while (tmp->next)
+	while (tmp)
 	{
-		tmp = tmp->next;		
-		del(tmp -> content);
+		next = tmp->next;
+		del(tmp->content);
 		free(tmp);
+		tmp = next;
 	}
-	free(lst);
 	*lst = NULL;
+}
+
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	t_list	*tmp;
+
+	tmp = lst;
+	while (tmp)
+	{
+		f(tmp->content);
+		tmp = tmp->next;
+	}
+}
+
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+{
+	t_list	*node1;
+	t_list	*tmp;
+	char	*content;
+	int		i;
+
+	i = 0;
+	tmp = lst;
+	while (tmp)
+	{
+		if (i == 0)
+			node1 = ft_lstnew(f(tmp->content));
+		content = malloc(sizeof(char) * ft_strlen(tmp->content));
+		if (!content)
+		{
+			ft_lstclear(&node1, del);
+			free(content);
+			return(NULL);
+		}
+		ft_lstadd_back(&node1, f(content));
+		tmp = tmp->next;
+		i++;
+	}
+	return(node1);
 }

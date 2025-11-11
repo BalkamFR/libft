@@ -6,7 +6,7 @@
 /*   By: papilaz <papilaz@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 17:24:00 by papilaz           #+#    #+#             */
-/*   Updated: 2025/11/10 19:01:40 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/11/11 14:34:01 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,11 @@ char	ma_fonction(unsigned int i, char c)
 // 	(void)argc;
 // }
 
+void	ft_del(void * tab)
+{	
+	free(tab);
+}
+
 int	main(void)
 {
 	t_list	*list;
@@ -174,7 +179,7 @@ int	main(void)
 		printf("- %s\n", (char *)tmp->content);
 		tmp = tmp->next;
 	}
-
+	ft_lstclear(&list, &ft_del);
 	printf("\ntaille noed %d\n\n", ft_lstsize(list));
 
 	printf("\nlast element noed %s\n\n", (char *)last->content);
