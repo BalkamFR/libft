@@ -6,7 +6,7 @@
 /*   By: papilaz <papilaz@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 17:06:31 by papilaz           #+#    #+#             */
-/*   Updated: 2025/11/11 14:49:32 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/11/12 13:57:29 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,26 +116,23 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*node1;
-	t_list	*tmp;
-	char	*content;
-	int		i;
+	void	*temp;
 
-	i = 0;
-	tmp = lst;
-	while (tmp)
+	node1 = NULL;
+	if (!f || !lst || !del)
+		return (NULL);
+	while (lst)
 	{
-		if (i == 0)
-			node1 = ft_lstnew(f(tmp->content));
-		content = malloc(sizeof(char) * ft_strlen(tmp->content));
-		if (!content)
+		temp = f(lst->content);
+		if (!temp)
 		{
 			ft_lstclear(&node1, del);
-			free(content);
-			return(NULL);
+			free(temp);
+			return (NULL);
 		}
-		ft_lstadd_back(&node1, f(content));
-		tmp = tmp->next;
-		i++;
+		temp = ft_lstnew(temp);
+		ft_lstadd_back(&node1, temp);
+		lst = lst->next;
 	}
-	return(node1);
+	return (node1);
 }

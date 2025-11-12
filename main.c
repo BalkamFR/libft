@@ -6,7 +6,7 @@
 /*   By: papilaz <papilaz@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 17:24:00 by papilaz           #+#    #+#             */
-/*   Updated: 2025/11/11 14:34:01 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/11/12 11:13:01 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,9 +179,12 @@ int	main(void)
 		printf("- %s\n", (char *)tmp->content);
 		tmp = tmp->next;
 	}
-	ft_lstclear(&list, &ft_del);
 	printf("\ntaille noed %d\n\n", ft_lstsize(list));
 
 	printf("\nlast element noed %s\n\n", (char *)last->content);
+
+	// t_list	*new;
+
+	// new = ft_lstmap(list,);
 	return (0);
 }
