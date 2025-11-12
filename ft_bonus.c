@@ -6,7 +6,7 @@
 /*   By: papilaz <papilaz@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 17:06:31 by papilaz           #+#    #+#             */
-/*   Updated: 2025/11/12 13:59:47 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/11/12 14:30:46 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,21 +117,27 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*node1;
 	void	*temp;
+	void	*temp2;
 
-	node1 = NULL;
-	if (!f || !lst || !del)
+	if (!f || !del)
 		return (NULL);
+	node1 = NULL;
 	while (lst)
 	{
 		temp = f(lst->content);
 		if (!temp)
 		{
 			ft_lstclear(&node1, del);
+			return (NULL);
+		}
+		temp2 = ft_lstnew(temp);
+		if (!temp2)
+		{
+			ft_lstclear(&node1, del);
 			free(temp);
 			return (NULL);
 		}
-		temp = ft_lstnew(temp);
-		ft_lstadd_back(&node1, temp);
+		ft_lstadd_back(&node1, temp2);
 		lst = lst->next;
 	}
 	return (node1);
