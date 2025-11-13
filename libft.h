@@ -6,7 +6,7 @@
 /*   By: papilaz <papilaz@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 13:35:36 by papilaz           #+#    #+#             */
-/*   Updated: 2025/11/12 11:10:20 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/11/13 10:56:30 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ void				ft_lstdelone(t_list *lst, void (*del)(void *));
 t_list				*ft_lstnew(void *content);
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
-t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
+						void (*del)(void *));
 int					ft_atoi(const char *nptr);
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
