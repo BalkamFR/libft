@@ -6,13 +6,13 @@
 /*   By: papilaz <papilaz@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 13:13:38 by papilaz           #+#    #+#             */
-/*   Updated: 2025/11/10 15:11:12 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/11/23 18:38:21 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_comptword(char const *tab, char sep, int flag)
+static int	ft_comptword(char const *tab, char sep, int flag)
 {
 	int	i;
 	int	compt;
@@ -41,7 +41,7 @@ int	ft_comptword(char const *tab, char sep, int flag)
 	return (compt_all_size);
 }
 
-void	ft_add_data(char const *s, char c, char **tab)
+static void	ft_add_data(char const *s, char c, char **tab)
 {
 	int	a;
 	int	b;
@@ -69,7 +69,7 @@ void	ft_add_data(char const *s, char c, char **tab)
 	tab[a] = NULL;
 }
 
-void	ft_allfree(char **tab, int size)
+static void	ft_allfree(char **tab, int size)
 {
 	int	i;
 

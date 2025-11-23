@@ -6,7 +6,7 @@
 /*   By: papilaz <papilaz@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 12:44:28 by papilaz           #+#    #+#             */
-/*   Updated: 2025/11/10 15:51:24 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/11/23 18:42:39 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (tab);
 }
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+size_t	ft_strlcat(char *dest, char *src, size_t size)
 {
-	unsigned int	i;
-	unsigned int	j;
-	unsigned int	src_len;
+	size_t	i;
+	size_t	j;
+	size_t	src_len;
 
 	i = 0;
 	j = 0;

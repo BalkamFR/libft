@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_utils2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: papilaz <papilaz@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 12:59:43 by papilaz           #+#    #+#             */
-/*   Updated: 2025/11/10 14:34:25 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/11/23 18:30:18 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	start = 0;
 	end = 0;
+	i = 0;
 	while (s1[end])
 		end++;
 	end--;
@@ -47,7 +48,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	result = malloc(sizeof(char) * (end - start + 2));
 	if (!result)
 		return (NULL);
-	i = 0;
 	while (start <= end)
 		result[i++] = s1[start++];
 	result[i] = '\0';

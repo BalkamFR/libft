@@ -6,13 +6,13 @@
 /*   By: papilaz <papilaz@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 15:26:44 by papilaz           #+#    #+#             */
-/*   Updated: 2025/11/10 15:26:26 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/11/23 18:44:54 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_compt_all_number(long n)
+static int	ft_compt_all_number(long n)
 {
 	int	compt;
 
@@ -30,7 +30,7 @@ int	ft_compt_all_number(long n)
 	return (compt);
 }
 
-void	ft_putnbr_add_data(long nb, char *tab)
+static void	ft_putnbr_add_data(long nb, char *tab)
 {
 	*tab = ((nb % 10) + '0');
 	if (nb >= 10)

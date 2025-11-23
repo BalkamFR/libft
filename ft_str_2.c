@@ -6,7 +6,7 @@
 /*   By: papilaz <papilaz@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 10:34:31 by papilaz           #+#    #+#             */
-/*   Updated: 2025/11/10 13:59:17 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/11/23 18:45:35 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 	i = 0;
 	len_tab = 0;
+	if (!big && len == 0)
+		return (NULL);
 	while (little[len_tab])
 		len_tab++;
 	if (len_tab == 0)
